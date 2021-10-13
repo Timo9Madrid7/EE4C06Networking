@@ -159,3 +159,25 @@
 - Connection Admission Control (CAC): Acceptance rules for new connection requests in order to guarantee the quality of service (QoS) for multimedia services in B-ISDN
 - Congestion: 
   System buffers fill up $\to$ Loss and retransmission $\to$ More traffic, more loss $\to$ **Positive feedback** $\to$ System collapse
+
+## Scheduling
+
+### Week 6
+- Head of the Line (HoL) vs. Partial Buffer Sharing (PBS) vs. Push-Out Buffer (POB)
+  - HoL: always serves high priorities in the buffer before low priorities
+  - PBS: below the threshold T: identical to FIFO and sequence order is preserved; above threshold T: only a high priority accepted until buffer is full
+  - POB: when an arrival of high priority cell,
+    - LIFO POB: the last entered low priority cell is discard
+    - Random POB: a randomly chosen low priority cell is pushed out
+    - FIFO POB: the first entered low priority cell is discard
+
+- Multiplexing of regulated flows:
+  $$Q_t=\sup_{s<t}[\sum_{k=l}^K L_k(s,t) - \mu(t-s)] \leq \sup_{s<t>}[\sum_{k=l}^K L_k(s,t) - \lambda_k(t-s)] \leq \sum_{k=l}^K \sigma_k = G] $$
+
+- N*D/D/1 queue:
+  $$Pr(N_s>G)=clr$$
+  $$Pr[N_s>x]=\exp(-\frac{2x^2}{N})\exp(-\frac{2x(1-\rho)}{\rho})$$
+  In the worst case scenario $\rho\to 1$, then $clr\approx\exp(-\frac{2x^2}{N})$
+
+  If the buffer size x = G, then the number Ns of flows is approximately,
+  $$N_s=\frac{2G^2}{-\ln(clr)}$$
