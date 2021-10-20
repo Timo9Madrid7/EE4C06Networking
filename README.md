@@ -1,4 +1,4 @@
-# EE4C06Networking
+# EE4C06 Networking
 
 ## Graph Theory
 
@@ -9,14 +9,14 @@
   - subgraph Adjacency matrix, $A = \begin{bmatrix}A_s & B \\ C & A_{G\setminus S}\end{bmatrix}$, $C=B^T$
   - Number of k-hop walks between node $i$ and $j$: $(A^k)_{ij}$
   - Total number of k-hop walks in G: $N_k=u^TA^ku=\Sigma_{i=1}^N\Sigma_{j=1}^N(A^k)_{ij}$
-  - Total number of closed k-hop walks in G: $W_k=\Sigma_{j=1}^N(A^k)_{ij}=trace(A^k)$
+  - Total number of closed k-hop walks in G: $W_k=\Sigma_{j=1}^N(A^k)_{jj}=trace(A^k)$
 - Incidence matrix: $B$, $u^T\cdot B=0$
 - Laplacian matrix: $Q=B\cdot B^T$
 - degree of nodes: $d=A \cdot u$
   - Regular graph: all nodes have the same degree
   - degree & #link: $u^Td = u^TAu=\Sigma_{j=1}^N d_j = 2L$ \
     $\to 2-\frac{2}{N} \leq E[D]=\frac{1}{N}\Sigma_{j=1}^N d_j = \frac{2L}{N} \leq N-1$ (connected graph)
-  - degree $ Adjacency matrix: $d_j = (A^2)_{jj}$ 
+  - degree of Adjacency matrix: $d_j = (A^2)_{jj}$ 
   - At least two nodes in G have the same degree
   - The number of nodes with odd degree is even
 - links of graph:
@@ -25,8 +25,8 @@
     - Complete graphL $L=N(N-1)/2$
 - Clustering coefficient: $C_G(V)=\frac{2y}{d_v(d_v-1)} \leq 1$, where y is the number of links between neighbors. If $d_v=1$, $C_G(V)=0$
   - It measures the local density around node $v$
-  - The clustering coefficient of a graph G: $C_B=\frac{1}{N}\Sigma_{v=1}^N C_G(v)$
-  - Another definition: $C_G=\frac{6 \times \# triangles}{N_2-W_2}=\frac{trace(A^3)}{d^Td-L}=\frac{\Sigma_{j=1}^N(A^k)_{jj}}{\Sigma_{i=1}^Nd_i(d_i-1)}$
+  - The clustering coefficient of a graph G: $C_G=\frac{1}{N}\Sigma_{v=1}^N C_G(v)$
+  - Another definition: $C_G=\frac{6 \times \# triangles}{N_2-W_2}=\frac{trace(A^3)}{d^Td-2L}=\frac{\Sigma_{j=1}^N(A^3)_{jj}}{\Sigma_{i=1}^Nd_i(d_i-1)}$
 - Hopcount: Hopcount from node $i$ to node $j$: $H_{i\to j}=h(P^*_{i\to j})$ where $P^*_{i\to j}$ is the shortest hop path from $i$ to $j$
   - diameter $\rho$ of $G$: hopcount of the longest shortest path in $G$. The average hopcount $E[H]$ reflects "efficiency" of transport in $G$.
   - The shortest walk between $i$ and $j$ is also a shortest path, $H_{ij}=k$
@@ -53,6 +53,7 @@
     - $\Sigma_{j=1}^N \lambda_j^2 = 2L$ 
     - $\Sigma_{j=1}^N \lambda_j^3 = 6\times triangles$
   - $\lambda_1$ and components of eigenvector $x_1$ are non-negative (when disconnected, $\equiv 0$)
+  - The radius is bounded: $E[D]\sqrt{1+\frac{Var[D]}{E^2[D]}} \leq \lambda_1 \leq d_{\max}$ 
 - Spectrum of Q:
   - any eigenvalue $\mu_k$ is non-negative and smallest $\mu_N=0$
   - complexity (number of spanning tree) is $\xi(G)=\frac{1}{N}\prod_{k=1}^{N-1}\mu_k$
