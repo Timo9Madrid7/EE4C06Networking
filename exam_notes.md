@@ -74,7 +74,7 @@ $$E[D]\sqrt{1+\frac{Var[D]}{E^2[D]}} \leq \lambda_1 \leq d_{\max}$$
 
 4. **complete graph**, spectrum of adjacency matrix
    - number of triangles:
-      $$\sum_{j=1}^N \lambda_j^3=N(N-1)(N-2)=6#triangle$$
+      $$\sum_{j=1}^N \lambda_j^3=N(N-1)(N-2)=6\#triangle$$
    - number of links:
       $$\sum_{j=1}^N \lambda_j^2=N(N-1)=2L$$
    - $\sum_{j=2}^N \lambda_j = -\lambda_1=1-N$
@@ -247,4 +247,30 @@ $$E[D]\sqrt{1+\frac{Var[D]}{E^2[D]}} \leq \lambda_1 \leq d_{\max}$$
     - so, line graph of path graph assortativity is $-\frac{1}{N-3}$
 
 # 2019(2)
-1. 
+1. trace of the Laplacian: $trace(Q)=total~degree=2L$
+2. Adjacency matrix
+3. average Laplacian eigenvalue of an Erdos-Renyi graph is $E[\mu]=(N-1)\rho$
+4. Laplacian matrix
+5. electrical network
+6. Laplacian matrix
+7. star, wheel, cycle graph
+8. k-hop walks
+   - 0-hop walks $N_0 = N$
+   - 1-hop walks $N_1 = 2L$
+   - 2-hop walks $N_2 = d^Td$
+9. complexity, the number of spanning tree, complete graph
+   - $\xi(G)=\frac{1}{N}\prod_{j=1}^{N-1}\mu_j$
+
+10. number of triangle
+    - $\Sigma_{j=1}^N \lambda_j^3 = 6\times triangles$
+
+11. power-law
+12. all eigenvalue of Q are always non-negative
+13. LIFO POB
+14. effective graph resistance
+15. adjacency matrix
+16. incidence matrix
+17. R-model, linearity
+18. algebraic connectivity $\mu_{N-1}$ is zero when graph is disconnected
+19. QoS
+20. On-off source
