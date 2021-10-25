@@ -16,7 +16,7 @@ $$E[D]\sqrt{1+\frac{Var[D]}{E^2[D]}} \leq \lambda_1 \leq d_{\max}$$
 
 4. diameter, clustering coefficient, connectivity
 
-   diameter = the longest shortest path
+   diameter = the longest shortest path \
    clustering coefficient = $\frac{2y}{d_v(d_v-1)}$
 
    higher connectivity $\sim$ higher $\mu_{N-1}$ 
@@ -36,10 +36,11 @@ $$E[D]\sqrt{1+\frac{Var[D]}{E^2[D]}} \leq \lambda_1 \leq d_{\max}$$
    closed k-hop walk: $W_k=\sum_j(A^k)_{jj}=\sum_idiag(A^k)_i$
 
 7. token bucket, burstiness
+   - if $\sigma$ is small, bursty traffic is delayed or discard
 
-8. Erdos-Renyi
+8. union Erdos-Renyi
 
-9. CAC = Connection Admission Control
+9.  CAC = Connection Admission Control
 
 10. electrical graph, effective resistance
 
@@ -98,7 +99,8 @@ $$E[D]\sqrt{1+\frac{Var[D]}{E^2[D]}} \leq \lambda_1 \leq d_{\max}$$
    - $Qu=0$ $u$ is an eigenvector of $Q$ belonging to eigenvalue $\mu=0$
 
 10. electrical graph, effective resistance
-11. electrical graph, potential voltage
+11. electrical graph, effective resistance
+    - compute the effective resistance between node 1 and 3 
 12. Laplacian matrix
 13. Star graph, spectrum of the Laplacian 
    
@@ -115,9 +117,9 @@ $$E[D]\sqrt{1+\frac{Var[D]}{E^2[D]}} \leq \lambda_1 \leq d_{\max}$$
 20. Erdos-Renyi graph
 
 # 2018 (1)
-1. disconnected graph, spectral radius
+1. disconnected graph, spectral radius, link density
    - If the graph is disconnected, its complementary graph is connected
-   - If $d_min = \min_{1\leq k\leq N}\lambda_k^2(A)$, the graph is disconnected
+   - If $d_{\min} = \min_{1\leq k\leq N}\lambda_k^2(A)$, the graph is disconnected
    - Increasing assortativity creates more disconnected components 
 
 2. remove one link in the graph
@@ -136,6 +138,7 @@ $$E[D]\sqrt{1+\frac{Var[D]}{E^2[D]}} \leq \lambda_1 \leq d_{\max}$$
    - if connected, $2-\frac{2}{N}\leq E(D)\leq N-1$
 
 6. robustness
+   - $E[S]$ diverges for $1<\tau<2$ if $k\to\infty$
 7. effective resistance matrix
    - symmetric
    - all diagonal elements are 0s
@@ -145,7 +148,7 @@ $$E[D]\sqrt{1+\frac{Var[D]}{E^2[D]}} \leq \lambda_1 \leq d_{\max}$$
    - A broader, bell-shape form of fl(x) around the origin (x=0) is a fingerprint of randomness
    - A tree/bipartite graph has a symmetric spectrum (Any tree can be represented as a bipartite graph)
 
-9. Envelope definitions
+9.  Envelope definitions
 10. line graph: two nodes in I(G) are connected by a link if the corresponding two links in G have a node in common
 11. Spectrum of Q:
     - complexity (number of spanning tree) is $\xi(G)=\frac{1}{N}\prod_{k=1}^{N-1}\mu_k$
@@ -155,9 +158,6 @@ $$E[D]\sqrt{1+\frac{Var[D]}{E^2[D]}} \leq \lambda_1 \leq d_{\max}$$
     - with the increase of the rewiring probability:
       - the average clustering coefficient decreases
       - the average hop count decreases
-    - the degree distribution is scale-free degree distribution (A scale-free network is a network whose degree distribution follows a power law)
-    - robustness to random node failure
-    - vulnerability to targeted hub attacks and cascading failures
 
 13. path, walk, connected graph
 14. Pseudoinverse of the Laplacian
@@ -167,7 +167,7 @@ $$E[D]\sqrt{1+\frac{Var[D]}{E^2[D]}} \leq \lambda_1 \leq d_{\max}$$
     - the effective graph resistance $R_G = N\times Trace(Q^\dag) = Nu^Tdiag(Q^\dag)$
 15. edge (node) connectivity:  the minimum number of links (or nodes) whose removal disconnects G
 16. degree
-17. power law
+17. power law (let k=2, A incorrect)
 18. $L(u,t)\leq max_{\tau\in[u,t]}\lambda(\tau)(t-u)$
 19. R-model: difficult to build a general theory
 20. assortativity
@@ -177,7 +177,9 @@ $$E[D]\sqrt{1+\frac{Var[D]}{E^2[D]}} \leq \lambda_1 \leq d_{\max}$$
 # 2018(2)
 1. line graph of the complete graph
    - node: $\frac{N(N-1)}{2}$
-   - link: $2(N-2)$
+   - degree: $2(N-2)$
+   - $\lambda$: n-2
+   - $\mu$: 4
 2. real-world complex network
    - small-world property
    - scale-free degree distribution
@@ -185,14 +187,19 @@ $$E[D]\sqrt{1+\frac{Var[D]}{E^2[D]}} \leq \lambda_1 \leq d_{\max}$$
    - robustness to random node failure
    - vulnerability to targeted attacks
 3. complement graph
+   - if the graph $G is disconnected, then its complement $G^C$ is connected
 4. power law, moment
    - $E[D^m]$ only exist for $\tau>m+1$ when $N\to\infty$
 5. spectrum
 6. subgraph, spectral radius
    - The spectral radius of a graph G is larger than or equal to the spectral radius of any subgraph of G
-7. electrical network
+7. electrical network, effective resistance
 8. adjacency matrix of bipartite graph
-9. degree
+   - diagonal entries of $A^{2n+1}$ is $0$ for bipartite graph without self-loops
+9.  degree
+    - every degree $\leq$ N-1
+    - The number of nodes with odd degree is even
+    - At least two nodes in G have the same degree
 10. tree graph
 11. Erdos-Renyi
 12. 
@@ -223,16 +230,21 @@ $$E[D]\sqrt{1+\frac{Var[D]}{E^2[D]}} \leq \lambda_1 \leq d_{\max}$$
 8. spectrum of adjacency matrix, number of triangles
    $\sum_{j=1}^N \lambda_j^3 = 6\#triangle$
 9. spectrum of adjacency matrix
-   - $\lambda_1-\lambda_2\leq N$
+   - $\lambda_1-\lambda_2\leq N$ (equals when N=2, $\lambda_1=1$ and $\lambda_2=-1$)
    - $\lambda_1\leq N-1$
    - $\sum_k\lambda_k=0$
 
 10. the effective graph resistance for a complete graph with $N$ nodes is $N-1$
 11. degree
-12. A positive semidefinite matrix is a Hermitian matrix all of whose eigenvalues are nonnegative.
+12. closeness, effective resistance matrix
+    - $Cl_{i}^{-1} \geq NQ^{\dag}_{ii}$
+    - A positive semidefinite matrix is a Hermitian matrix all of whose eigenvalues are nonnegative.
+    - the effective resistance matrix R is a Euclidean distance matrix: it has zero diagonal, nonnegative entries.
 13. Erdos-Renyi
 14. R-model: the more independent m metrics are, the better robustness measure R for network is
 15. small-world compared with random graph p.73
+   - Purely random graphs, built according to the Erdős–Rényi (ER) model, exhibit a small average shortest path length (varying typically as the logarithm of the number of nodes) along with a small clustering coefficient. 
+
 16. spectrum of adjacency matrix
    - $\Sigma_{j=1}^N \lambda_j = 0$
    - $\Sigma_{j=1}^N \lambda_j^2 = 2L$
@@ -240,6 +252,7 @@ $$E[D]\sqrt{1+\frac{Var[D]}{E^2[D]}} \leq \lambda_1 \leq d_{\max}$$
 
 17. token bucket
 18. Robustness envelope
+    - for scenario B, $K_{\text{attack}}=K_{\text{recovery}}$
 19. electrical network, current on the link
 20. line graph, assortativity, path graph
     - line graph of path graph is still path graph only removing one node from original graph
@@ -263,6 +276,7 @@ $$E[D]\sqrt{1+\frac{Var[D]}{E^2[D]}} \leq \lambda_1 \leq d_{\max}$$
 
 10. number of triangle
     - $\Sigma_{j=1}^N \lambda_j^3 = 6\times triangles$
+    - $\Sigma_{j=1}^N \lambda_j^2 = 2\times Links$
 
 11. power-law
 12. all eigenvalue of Q are always non-negative

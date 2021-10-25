@@ -52,7 +52,7 @@
     - $\Sigma_{j=1}^N \lambda_j = 0$ 
     - $\Sigma_{j=1}^N \lambda_j^2 = 2L$ 
     - $\Sigma_{j=1}^N \lambda_j^3 = 6\times triangles$
-  - $\lambda_1$ and components of eigenvector $x_1$ are non-negative (when disconnected, $\equiv 0$)
+  - $\lambda_1$ and components of eigenvector $x_1$ are non-negative (when reducible, $\equiv 0$)
   - The radius is bounded: $E[D]\sqrt{1+\frac{Var[D]}{E^2[D]}} \leq \lambda_1 \leq d_{\max}$ 
 - Spectrum of Q:
   - any eigenvalue $\mu_k$ is non-negative and smallest $\mu_N=0$
